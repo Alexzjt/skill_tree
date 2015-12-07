@@ -1,0 +1,29 @@
+development:
+  adapter: mysql2
+  encoding: utf8
+  pool: 2
+  reconnect: true
+  database: bigbang
+  host: localhost
+  username: root
+  password:
+#  host: rdsmzuau2mzuau2.mysql.rds.aliyuncs.com
+#  username: bb
+#  password: runbigbang
+  write_timeout: 5
+  read_timeout: 3
+  wait_timeout: 20
+
+
+production:
+  adapter: mysql2
+  encoding: utf8
+  pool: 2
+  reconnect: true
+  host: rdsmzuau2mzuau2.mysql.rds.aliyuncs.com
+  database: bigbang
+  username: bb
+  password: runbigbang
+  write_timeout: 5
+  read_timeout: 3
+  wait_timeout: 20

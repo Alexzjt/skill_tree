@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>skilltree</title>
+  <meta name="description" content="skilltree for test">
+  <meta name="author" content="Zephyrus@http://lightrains.org">
+  <link href="./css/layout.css" rel="stylesheet">
+  <SCRIPT src="./js/jquery-latest.js" type=text/javascript></SCRIPT>
+
+</head>
+<body>
+<div class="ltIE9-hide">
+  <div class="ltIE9-hide">
+    <div data-bind="css: { open: isOpen }" class="page">
+      <div class="intro">
+        <div class="left"></div>
+        <div class="right"></div>
+        <p>选择职业</p>
+        <button data-bind="click: toggle" class="demo1" >产品经理</button>
+        <button data-bind="click: toggle" class="demo2" >UI</button>
+        <button data-bind="click: toggle" class="demo3" >程序员</button>
+      </div>
+
+
+      <div class="talent-tree">
+
+        <!--	<h2 class="start-helper" data-bind="css:{active:noPointsSpent}">Start here!</h2>-->
+        <!--ko foreach: skills-->
+        <div data-bind="css: { 'can-add-points': canAddPoints, 'has-points': hasPoints, 'has-max-points': hasMaxPoints }, attr: { 'data-skill-id': id }" class="skill">
+          <div data-bind="css: { active: dependenciesFulfilled }" class="skill-dependency"></div>
+        </div>
+        <!--/ko-->
+        <!--ko foreach: skills-->
+        <div data-bind="css: { 'can-add-points': canAddPoints, 'has-points': hasPoints, 'has-max-points': hasMaxPoints }, attr: { 'data-skill-id': id }" class="skill">
+          <div class="icon-container">
+            <div class="icon"></div>
+          </div>
+          <div class="frame">
+            <div class="tool-tip">
+              <h3 data-bind="text: title" class="skill-name"></h3>
+              <div data-bind="html: description" class="skill-description"></div>
+              <ul class="skill-links">
+                <!--ko foreach: links-->
+                <li>
+                  <a data-bind="attr: { href: url }, click: function(){
+										_gaq.push(['_trackEvent',$parent.title, label, url]);
+										return true;
+										}, text: label" target="_blank"></a>
+                </li>
+                <!--/ko-->
+              </ul>
+              <hr data-bind="visible: currentRankDescription() || nextRankDescription()">
+              <div data-bind="if: currentRankDescription" class="current-rank-description">Current rank: <span data-bind="	text: currentRankDescription"></span></div>
+              <div data-bind="if: nextRankDescription" class="next-rank-description">Next rank: <span data-bind="	text: nextRankDescription"></span></div>
+              <hr>
+              <ul class="stats">
+                <!--ko foreach: stats-->
+                <li><span class="value">+<span data-bind="text: value"></span></span> <span data-bind="	text: title" class="title"></span></li>
+                <!--/ko-->
+              </ul>
+              <!--ko if: talentSummary-->
+              <div class="talent-summary">Grants <span data-bind="text: talentSummary"></span></div>
+              <!--/ko-->
+              <div data-bind="text: helpMessage" class="help-message"></div>
+            </div>
+            <div class="skill-points"><span data-bind="text: points" class="points"></span>/<span data-bind="	text: maxPoints" class="max-points"></span></div>
+            <div data-bind="click: addPoint, rightClick: removePoint" class="hit-area"></div>
+          </div>
+        </div>
+        <!--/ko-->
+      </div>
+      <div class="avatar">
+        <div class="portrait">
+          <img data-bind="attr: { src: portraitURL }"></div>
+        <div class="portrait-controls">
+          <button data-bind="click: choosePreviousPortrait" class="left-button">&laquo;</button>&nbsp;<button data-bind="click: chooseNextPortrait" class="right-button">&raquo;</button>
+        </div>
+        <div class="details">
+          <input data-bind="value: avatarName" class="h2"><div class="level">Level <span data-bind="	text: level" class="value"></span> Web Developer</div>
+          <div data-bind="text: talentSummary" class="talent-summary"></div>
+          <ul class="stats">
+            <!--ko foreach: stats-->
+            <li><span data-bind="text: title" class="title"></span>: <span data-bind="	text: value" class="value"></span></li>
+            <!--/ko-->
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="ltIE9-show ltIE9-warning">
+    <h2>Please upgrade your browser!</h2>
+    <p>Try one of these free options:</p>
+    <ul>
+      <li><a onclick="_gaq.push(['_trackEvent','external link','upgrade browser','Chrome']);" href="http://google.com/chrome" target="_blank">Google Chrome</a></li>
+      <li><a onclick="_gaq.push(['_trackEvent','external link','upgrade browser','MSIE']);" href="http://windows.microsoft.com/en-US/internet-explorer/download-ie" target="_blank">Microsoft Internet Explorer 10</a></li>
+      <li><a onclick="_gaq.push(['_trackEvent','external link','upgrade browser','Firefox']);" href="www.mozilla.org/en-US/firefox" target="_blank">Mozilla Firefox</a></li>
+    </ul>
+  </div>
+
+
+  <script src="./js/jquery.min.js"></script>
+  <script src="./js/knockout.min.js"></script>
+  <script src="./js/skilltree.min.js"></script>
+  <script src="./js/default.js"></script>
+</body>
+</html>

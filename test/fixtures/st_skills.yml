@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  level: 1
+  maxlevel: 1
+  description: MyText
+  approach: MyString
+  icon: MyString
+  before: MyString
+  after: MyString
+  bonus: MyString
+
+two:
+  name: MyString
+  level: 1
+  maxlevel: 1
+  description: MyText
+  approach: MyString
+  icon: MyString
+  before: MyString
+  after: MyString
+  bonus: MyString
